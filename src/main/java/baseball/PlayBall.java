@@ -4,6 +4,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 
 import java.io.BufferedReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 public class PlayBall {
@@ -34,53 +35,75 @@ public class PlayBall {
         }
     }
 
-    public void play(List<Integer> computer){
-        try{
-            System.out.println(computer);
-            System.out.print("숫자를 입력해 주세요 : ");
-            String str = Console.readLine();
+    public void play2(List<Integer> computer){
+        System.out.println(computer);
+        System.out.print("숫자를 입력해 주세요 : ");
+        String str = Console.readLine();
+        str = check1(str);
 
-            if(str.charAt(0) == (char)(computer.get(0) + '0')){
-                this.strike += 1;
-            }else if(computer.contains(Character.getNumericValue(str.charAt(0)))){
-                this.ball += 1;
-            }
-            if(str.charAt(1) == (char)(computer.get(1) + '0')){
-                this.strike += 1;
-            }else if(computer.contains(Character.getNumericValue(str.charAt(1)))){
-                this.ball += 1;
-            }
-            if(str.charAt(2) == (char)(computer.get(2) + '0')){
-                this.strike += 1;
-            }else if(computer.contains(Character.getNumericValue(str.charAt(2)))){
-                this.ball += 1;
-            }
+        if(str.charAt(0) == (char)(computer.get(0) + '0')){
+            this.strike += 1;
+        }else if(computer.contains(Character.getNumericValue(str.charAt(0)))){
+            this.ball += 1;
+        }
+        if(str.charAt(1) == (char)(computer.get(1) + '0')){
+            this.strike += 1;
+        }else if(computer.contains(Character.getNumericValue(str.charAt(1)))){
+            this.ball += 1;
+        }
+        if(str.charAt(2) == (char)(computer.get(2) + '0')){
+            this.strike += 1;
+        }else if(computer.contains(Character.getNumericValue(str.charAt(2)))){
+            this.ball += 1;
+        }
 
-            if(this.strike == 3){
-                System.out.printf("%d스트라이크\n", this.strike);
-                System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
-                System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        if(this.strike == 3){
+            System.out.printf("%d스트라이크\n", this.strike);
+            System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
+            System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+            try{
                 String oneOrTwo = Console.readLine();
+                oneOrTwo = check2(oneOrTwo);
                 this.ball = 0;
                 this.strike = 0;
                 choice(oneOrTwo);
-
-            }else if(this.strike == 0 && this.ball == 0){
-                System.out.println("낫싱");
-            }else if(this.strike != 0 && this.ball != 0){
-                System.out.printf("%d볼 %d스트라이크\n", this.ball, this.strike);
-            }else if(this.strike != 0){
-                System.out.printf("%d스트라이크\n", this.strike);
-            }else{
-                System.out.printf("%d볼\n", this.ball);
+            }catch(IllegalArgumentException e){
+                this.flag = 1;
             }
-            this.ball = 0;
-            this.strike = 0;
 
+        }else if(this.strike == 0 && this.ball == 0){
+            System.out.println("낫싱");
+        }else if(this.strike != 0 && this.ball != 0){
+            System.out.printf("%d볼 %d스트라이크\n", this.ball, this.strike);
+        }else if(this.strike != 0){
+            System.out.printf("%d스트라이크\n", this.strike);
+        }else{
+            System.out.printf("%d볼\n", this.ball);
+        }
+        this.ball = 0;
+        this.strike = 0;
+    }
+    public void play(List<Integer> computer){
+        try{
+            play2(this.computer);
 
         }catch (IllegalArgumentException e){
             this.flag = 1;
         }
+    }
+
+    public static String check1(String s) throws IllegalArgumentException{
+        if(s.length() != 3 || ((int)s.charAt(0) - '0' >= 10 || (int)s.charAt(0) - '0' < 0) || ((int)s.charAt(1) - '0' >= 10 || (int)s.charAt(1) - '0' < 0) || ((int)s.charAt(2) - '0' >= 10 || (int)s.charAt(2) - '0' < 0)) {
+            throw new IllegalArgumentException();
+        }
+        return s;
+    }
+
+    public static String check2(String s) throws IllegalArgumentException{
+        if(!s.equals("1") && !s.equals("2")){
+            throw new IllegalArgumentException();
+        }
+        return s;
     }
 
     public void start() {
@@ -90,7 +113,6 @@ public class PlayBall {
                 return;
             }
             play(this.computer);
-
 
         }
     }
