@@ -35,8 +35,7 @@ public class PlayBall {
         }
     }
 
-    public void play2(List<Integer> computer){
-        System.out.println(computer);
+    public void play(List<Integer> computer){
         System.out.print("숫자를 입력해 주세요 : ");
         String str = Console.readLine();
         str = check1(str);
@@ -61,15 +60,13 @@ public class PlayBall {
             System.out.printf("%d스트라이크\n", this.strike);
             System.out.println("3개의 숫자를 모두 맞히셨습니다! 게임 종료");
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-            try{
-                String oneOrTwo = Console.readLine();
-                oneOrTwo = check2(oneOrTwo);
-                this.ball = 0;
-                this.strike = 0;
-                choice(oneOrTwo);
-            }catch(IllegalArgumentException e){
-                this.flag = 1;
-            }
+
+            String oneOrTwo = Console.readLine();
+            oneOrTwo = check2(oneOrTwo);
+            this.ball = 0;
+            this.strike = 0;
+            choice(oneOrTwo);
+
 
         }else if(this.strike == 0 && this.ball == 0){
             System.out.println("낫싱");
@@ -82,14 +79,6 @@ public class PlayBall {
         }
         this.ball = 0;
         this.strike = 0;
-    }
-    public void play(List<Integer> computer){
-        try{
-            play2(this.computer);
-
-        }catch (IllegalArgumentException e){
-            this.flag = 1;
-        }
     }
 
     public static String check1(String s) throws IllegalArgumentException{
