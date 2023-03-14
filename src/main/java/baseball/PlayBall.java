@@ -2,31 +2,22 @@ package baseball;
 import camp.nextstep.edu.missionutils.Console;
 import camp.nextstep.edu.missionutils.Randoms;
 
-import java.io.BufferedReader;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
+
 public class PlayBall {
     List<Integer> computer = new ArrayList<>();
     int flag = 0;
     public PlayBall(){
-        makingRandom();
+        MakingRandom mkRandom = new MakingRandom(computer);
+        mkRandom.makeRandom();
     }
 
-    public void makingRandom(){
-        while (computer.size() < 3) {
-            int randomNumber = Randoms.pickNumberInRange(1, 9);
-            if (!computer.contains(randomNumber)) {
-                computer.add(randomNumber);
-            }
-        }
-    }
-
-    public void choice(String oneOrTwo){
+    public void choice(String oneOrTwo, List<Integer> computer){
         if(oneOrTwo.equals("1")){
             computer.clear();
-            makingRandom();
+            MakingRandom mkRandom = new MakingRandom(computer);
+            mkRandom.makeRandom();
 
         }else if(oneOrTwo.equals("2")){
             flag = 1;
@@ -49,7 +40,7 @@ public class PlayBall {
 
             String oneOrTwo = Console.readLine();
             oneOrTwo = OneOrTwoInputChecking.check2(oneOrTwo);
-            choice(oneOrTwo);
+            choice(oneOrTwo, computer);
 
 
         }else if(strike == 0 && ball == 0){
