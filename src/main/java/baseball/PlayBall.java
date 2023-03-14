@@ -39,25 +39,10 @@ public class PlayBall {
         str = check1(str);
         int strike = 0;
         int ball = 0;
+
         BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();
         strike = ballStrikeJudge.ballOrStrike(str, computer, flag).getStrike();
         ball = ballStrikeJudge.ballOrStrike(str, computer, flag).getBall();
-
-//        if(str.charAt(0) == (char)(computer.get(0) + '0')){
-//            strike += 1;
-//        }else if(computer.contains(Character.getNumericValue(str.charAt(0)))){
-//            ball += 1;
-//        }
-//        if(str.charAt(1) == (char)(computer.get(1) + '0')){
-//            strike += 1;
-//        }else if(computer.contains(Character.getNumericValue(str.charAt(1)))){
-//            ball += 1;
-//        }
-//        if(str.charAt(2) == (char)(computer.get(2) + '0')){
-//            strike += 1;
-//        }else if(computer.contains(Character.getNumericValue(str.charAt(2)))){
-//            ball += 1;
-//        }
 
         if(strike == 3){
             System.out.printf("%d스트라이크\n", strike);
