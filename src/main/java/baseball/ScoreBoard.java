@@ -20,9 +20,7 @@ public class ScoreBoard {
         return this.strike;
     }
 
-    public int getBall(){
-        return this.ball;
-    }
+    public int getBall() { return this.ball; }
 
 
 }
