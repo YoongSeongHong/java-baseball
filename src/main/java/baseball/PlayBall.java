@@ -66,17 +66,25 @@ public class PlayBall {
     }
 
     public static String check1(String s) throws IllegalArgumentException{
-        if(s.length() != 3 || ((int)s.charAt(0) - '0' >= 10 || (int)s.charAt(0) - '0' < 0) || ((int)s.charAt(1) - '0' >= 10 || (int)s.charAt(1) - '0' < 0) || ((int)s.charAt(2) - '0' >= 10 || (int)s.charAt(2) - '0' < 0)) {
+        if(inputNumWell(s)) {
             throw new IllegalArgumentException();
         }
         return s;
     }
 
+    private static boolean inputNumWell(String s) {
+        return s.length() != 3 || ((int) s.charAt(0) - '0' >= 10 || (int) s.charAt(0) - '0' < 0) || ((int) s.charAt(1) - '0' >= 10 || (int) s.charAt(1) - '0' < 0) || ((int) s.charAt(2) - '0' >= 10 || (int) s.charAt(2) - '0' < 0);
+    }
+
     public static String check2(String s) throws IllegalArgumentException{
-        if(!s.equals("1") && !s.equals("2")){
+        if(whetherInputOneOrTwo(s)){
             throw new IllegalArgumentException();
         }
         return s;
+    }
+
+    private static boolean whetherInputOneOrTwo(String s) {
+        return !s.equals("1") && !s.equals("2");
     }
 
     public void start() {
