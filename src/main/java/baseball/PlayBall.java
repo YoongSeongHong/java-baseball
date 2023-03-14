@@ -36,13 +36,11 @@ public class PlayBall {
     public void play(List<Integer> computer){
         System.out.print("숫자를 입력해 주세요 : ");
         String str = Console.readLine();
-        str = check1(str);
-        int strike = 0;
-        int ball = 0;
+        str = ThreeNumsInputChecking.check1(str);
 
         BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();
-        strike = ballStrikeJudge.ballOrStrike(str, computer, flag).getStrike();
-        ball = ballStrikeJudge.ballOrStrike(str, computer, flag).getBall();
+        int strike = ballStrikeJudge.ballOrStrike(str, computer, flag).getStrike();
+        int ball = ballStrikeJudge.ballOrStrike(str, computer, flag).getBall();
 
         if(strike == 3){
             System.out.printf("%d스트라이크\n", strike);
@@ -50,7 +48,7 @@ public class PlayBall {
             System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
 
             String oneOrTwo = Console.readLine();
-            oneOrTwo = check2(oneOrTwo);
+            oneOrTwo = OneOrTwoInputChecking.check2(oneOrTwo);
             choice(oneOrTwo);
 
 
@@ -63,28 +61,6 @@ public class PlayBall {
         }else{
             System.out.printf("%d볼\n", ball);
         }
-    }
-
-    public static String check1(String s) throws IllegalArgumentException{
-        if(inputNumWell(s)) {
-            throw new IllegalArgumentException();
-        }
-        return s;
-    }
-
-    private static boolean inputNumWell(String s) {
-        return s.length() != 3 || ((int) s.charAt(0) - '0' >= 10 || (int) s.charAt(0) - '0' < 0) || ((int) s.charAt(1) - '0' >= 10 || (int) s.charAt(1) - '0' < 0) || ((int) s.charAt(2) - '0' >= 10 || (int) s.charAt(2) - '0' < 0);
-    }
-
-    public static String check2(String s) throws IllegalArgumentException{
-        if(whetherInputOneOrTwo(s)){
-            throw new IllegalArgumentException();
-        }
-        return s;
-    }
-
-    private static boolean whetherInputOneOrTwo(String s) {
-        return !s.equals("1") && !s.equals("2");
     }
 
     public void start() {
