@@ -5,7 +5,7 @@ import java.util.List;
 public class BallStrikeJudge {
 
 
-    public ScoreBoard ballOrStrike(String str, List<Integer> computer, int flag){
+    public ScoreBoard ballOrStrike(String str, List<Integer> computer){
         ScoreBoard scoreBoard = new ScoreBoard(0, 0);
 
         if(str.charAt(0) == (char)(computer.get(0) + '0')){

@@ -19,8 +19,8 @@ public class PlayBall {
         str = ThreeNumsInputChecking.check1(str);
 
         BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();
-        int strike = ballStrikeJudge.ballOrStrike(str, computer, flag).getStrike();
-        int ball = ballStrikeJudge.ballOrStrike(str, computer, flag).getBall();
+        int strike = ballStrikeJudge.ballOrStrike(str, computer).getStrike();
+        int ball = ballStrikeJudge.ballOrStrike(str, computer).getBall();
 
         PrintingResult ptResult = new PrintingResult(strike, ball, computer);
         ptResult.printResult();
