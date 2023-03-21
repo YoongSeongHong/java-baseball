@@ -24,7 +24,7 @@ public class PrintingResult {
             String oneOrTwo = Console.readLine();
             oneOrTwo = OneOrTwoInputChecking.check2(oneOrTwo);
 
-            ChoiceOneOrTwo choiceOneOrTwo = new ChoiceOneOrTwo();
+            ChoosingGameOverOrExit choiceOneOrTwo = new ChoosingGameOverOrExit();
             choiceOneOrTwo.choice(oneOrTwo, computer);
             flag = choiceOneOrTwo.getFlag();
 

@@ -1,6 +1,5 @@
 package baseball;
 import camp.nextstep.edu.missionutils.Console;
-import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,11 +8,11 @@ public class PlayBall {
     List<Integer> computer = new ArrayList<>();
     int flag = 0;
     public PlayBall(){
-        MakingRandom mkRandom = new MakingRandom(computer);
-        mkRandom.makeRandom();
+        MakingRandomThreeNumsList mkRandom = new MakingRandomThreeNumsList(computer);
+        mkRandom.makeRandomThreeNumsList();
     }
 
-    public void play(List<Integer> computer){
+    public void repeatGameUntilGameOver(List<Integer> computer){
         System.out.print("숫자를 입력해 주세요 : ");
         String str = Console.readLine();
         str = ThreeNumsInputChecking.check1(str);
@@ -34,7 +33,7 @@ public class PlayBall {
             if(flag == 1){
                 return;
             }
-            play(this.computer);
+            repeatGameUntilGameOver(this.computer);
 
         }
     }

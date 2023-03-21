@@ -10,19 +10,19 @@ public class BallStrikeJudge {
         int num = 0;
 
         if(checkIfItIsStrike(str, computer, 0)){
-            scoreBoard.addStrike();
+            scoreBoard.plusStrike();
         }else if(checkIfItIsBall(str, computer, 0)){
-            scoreBoard.addBall();
+            scoreBoard.plusBall();
         }
         if(checkIfItIsStrike(str, computer, 1)){
-            scoreBoard.addStrike();
+            scoreBoard.plusStrike();
         }else if(checkIfItIsBall(str, computer, 1)){
-            scoreBoard.addBall();
+            scoreBoard.plusBall();
         }
         if(checkIfItIsStrike(str, computer, 2)){
-            scoreBoard.addStrike();
+            scoreBoard.plusStrike();
         }else if(checkIfItIsBall(str, computer ,2)){
-            scoreBoard.addBall();
+            scoreBoard.plusBall();
         }
 
         return scoreBoard;

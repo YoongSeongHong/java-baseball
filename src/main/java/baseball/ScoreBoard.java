@@ -8,11 +8,11 @@ public class ScoreBoard {
         this.ball = ball;
     }
 
-    public void addStrike(){
+    public void plusStrike(){
         this.strike++;
     }
 
-    public void addBall(){
+    public void plusBall(){
         this.ball++;
     }
 
