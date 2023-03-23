@@ -8,7 +8,11 @@ import java.util.List;
 
 public class PlayBall {
     List<Integer> computer = new ArrayList<>();
-    int flag = 0;
+    private int flag = 0;
+    private int strike = 0;
+    private int ball = 0;
+    public static final int GAME_OVER = 1;
+    public static final int GAME_CONTINUE = 0;
     public PlayBall(){
         MakingRandomThreeNumsList mkRandom = new MakingRandomThreeNumsList(computer);
         mkRandom.makeRandomThreeNumsList();
@@ -16,12 +20,12 @@ public class PlayBall {
 
     public void repeatGameUntilGameOver(List<Integer> computer){
         System.out.print("숫자를 입력해 주세요 : ");
-        String str = Console.readLine();
-        str = ThreeNumsInputChecking.check1(str);
+        String inputtedThreeNums = Console.readLine();
+        inputtedThreeNums = ThreeNumsInputChecking.check1(inputtedThreeNums);
 
         BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();
-        int strike = ballStrikeJudge.ballOrStrike(str, computer).getStrike();
-        int ball = ballStrikeJudge.ballOrStrike(str, computer).getBall();
+        strike = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getStrike();
+        ball = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getBall();
 
         PrintingResult ptResult = new PrintingResult(strike, ball, computer);
         ptResult.printResult();
