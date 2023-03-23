@@ -19,11 +19,11 @@ public class BallStrikeJudge {
         return scoreBoard;
     }
 
-    private static boolean checkIfItIsBall(String str, List<Integer> computer, int num) {
+    private boolean checkIfItIsBall(String str, List<Integer> computer, int num) {
         return computer.contains(Character.getNumericValue(str.charAt(num)));
     }
 
-    private static boolean checkIfItIsStrike(String str, List<Integer> computer, int num) {
+    private boolean checkIfItIsStrike(String str, List<Integer> computer, int num) {
         return str.charAt(num) == (char) (computer.get(num) + '0');
     }
 }
