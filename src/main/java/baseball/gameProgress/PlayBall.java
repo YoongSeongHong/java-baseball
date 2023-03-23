@@ -12,6 +12,8 @@ public class PlayBall {
     private int ball = 0;
     private static final int GAME_OVER = 1;
     private String inputtedThreeNums;
+    BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();
+    PrintingResult ptResult = new PrintingResult();
 
 
     public PlayBall(){
@@ -24,12 +26,10 @@ public class PlayBall {
         inputtedThreeNums = Console.readLine();
         inputtedThreeNums = ThreeNumsInputChecking.check1(inputtedThreeNums);
 
-        BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();
         strike = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getStrike();
         ball = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getBall();
 
-        PrintingResult ptResult = new PrintingResult(strike, ball, computer);
-        return ptResult.printResult();
+        return ptResult.printResult(strike, ball, computer);
 
 
     }

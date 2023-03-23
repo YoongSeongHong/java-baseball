@@ -13,13 +13,9 @@ public class PrintingResult {
     List<Integer> computer;
     ChoosingNewGameOrExit choiceOneOrTwo = new ChoosingNewGameOrExit();
     PrintedSentences ptSentences = PrintedSentences.getPrintedSentencesOnlyInstance();
-    public PrintingResult(int strike, int ball, List<Integer> computer){
-        this.strike = strike;
-        this.ball = ball;
-        this.computer = computer;
-    }
+    public PrintingResult(){}
 
-    public int printResult(){
+    public int printResult(int strike, int ball, List<Integer> computer){
         if(strike == 3){
             ptSentences.printThreeStrike(strike);
 
