@@ -3,11 +3,10 @@ package baseball.gameProgress;
 import java.util.List;
 
 public class BallStrikeJudge {
-
+    ScoreBoard scoreBoard = new ScoreBoard(0, 0);
 
     public ScoreBoard ballOrStrike(String str, List<Integer> computer){
-        ScoreBoard scoreBoard = new ScoreBoard(0, 0);
-        int num = 0;
+        scoreBoard.resetScoreBoard();
 
         if(checkIfItIsStrike(str, computer, 0)){
             scoreBoard.plusStrike();

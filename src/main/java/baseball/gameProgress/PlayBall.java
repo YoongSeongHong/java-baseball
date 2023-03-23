@@ -12,6 +12,7 @@ public class PlayBall {
     private int strike = 0;
     private int ball = 0;
     private static final int GAME_OVER = 1;
+    private String inputtedThreeNums;
     public PlayBall(){
         MakingRandomThreeNumsList mkRandom = new MakingRandomThreeNumsList(computer);
         mkRandom.makeRandomThreeNumsList();
@@ -19,7 +20,7 @@ public class PlayBall {
 
     public int repeatGameUntilGameOver(List<Integer> computer){
         System.out.print("숫자를 입력해 주세요 : ");
-        String inputtedThreeNums = Console.readLine();
+        inputtedThreeNums = Console.readLine();
         inputtedThreeNums = ThreeNumsInputChecking.check1(inputtedThreeNums);
 
         BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();

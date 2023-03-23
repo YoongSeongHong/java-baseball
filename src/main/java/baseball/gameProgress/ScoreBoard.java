@@ -22,5 +22,9 @@ public class ScoreBoard {
 
     public int getBall() { return this.ball; }
 
+    public void resetScoreBoard(){
+        strike = 0;
+        ball = 0;
+    }
 
 }
