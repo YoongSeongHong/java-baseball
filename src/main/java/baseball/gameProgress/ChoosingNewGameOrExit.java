@@ -1,10 +1,12 @@
-package baseball;
+package baseball.gameProgress;
+
+import baseball.initializing.MakingRandomThreeNumsList;
 
 import java.util.List;
 
-public class ChoosingGameOverOrExit {
+public class ChoosingNewGameOrExit {
     private int flag = 0;
-    public void choice(String oneOrTwo, List<Integer> computer){
+    public void chooseNewGameOrExit(String oneOrTwo, List<Integer> computer){
         if(oneOrTwo.equals("1")){
             computer.clear();
             MakingRandomThreeNumsList mkRandom = new MakingRandomThreeNumsList(computer);

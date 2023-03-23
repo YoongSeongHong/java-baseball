@@ -1,4 +1,4 @@
-package baseball;
+package baseball.gameProgress;
 
 public class ScoreBoard {
     private int strike;

@@ -1,4 +1,6 @@
-package baseball;
+package baseball.gameProgress;
+import baseball.initializing.MakingRandomThreeNumsList;
+import baseball.checkingExceptions.ThreeNumsInputChecking;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.ArrayList;

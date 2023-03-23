@@ -1,5 +1,7 @@
-package baseball;
+package baseball.gameProgress;
 
+import baseball.checkingExceptions.OneOrTwoInputChecking;
+import baseball.storingConstant.PrintedSentences;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
@@ -22,8 +24,8 @@ public class PrintingResult {
             String oneOrTwo = Console.readLine();
             oneOrTwo = OneOrTwoInputChecking.check2(oneOrTwo);
 
-            ChoosingGameOverOrExit choiceOneOrTwo = new ChoosingGameOverOrExit();
-            choiceOneOrTwo.choice(oneOrTwo, computer);
+            ChoosingNewGameOrExit choiceOneOrTwo = new ChoosingNewGameOrExit();
+            choiceOneOrTwo.chooseNewGameOrExit(oneOrTwo, computer);
             flag = choiceOneOrTwo.getFlag();
 
 

@@ -1,4 +1,4 @@
-package baseball;
+package baseball.checkingExceptions;
 
 public class OneOrTwoInputChecking {
     public static String check2(String s) throws IllegalArgumentException{

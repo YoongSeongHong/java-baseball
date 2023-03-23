@@ -1,4 +1,4 @@
-package baseball;
+package baseball.storingConstant;
 
 public class PrintedSentences {
     private int strike;
