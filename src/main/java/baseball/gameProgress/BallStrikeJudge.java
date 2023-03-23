@@ -8,20 +8,12 @@ public class BallStrikeJudge {
     public ScoreBoard ballOrStrike(String str, List<Integer> computer){
         scoreBoard.resetScoreBoard();
 
-        if(checkIfItIsStrike(str, computer, 0)){
-            scoreBoard.plusStrike();
-        }else if(checkIfItIsBall(str, computer, 0)){
-            scoreBoard.plusBall();
-        }
-        if(checkIfItIsStrike(str, computer, 1)){
-            scoreBoard.plusStrike();
-        }else if(checkIfItIsBall(str, computer, 1)){
-            scoreBoard.plusBall();
-        }
-        if(checkIfItIsStrike(str, computer, 2)){
-            scoreBoard.plusStrike();
-        }else if(checkIfItIsBall(str, computer ,2)){
-            scoreBoard.plusBall();
+        for(int i = 0; i < 3; i++){
+            if(checkIfItIsStrike(str, computer, i)){
+                scoreBoard.plusStrike();
+            }else if(checkIfItIsBall(str, computer, i)){
+                scoreBoard.plusBall();
+            }
         }
 
         return scoreBoard;
