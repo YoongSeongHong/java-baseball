@@ -8,11 +8,12 @@ import java.util.List;
 
 public class PlayBall {
     List<Integer> computer = new ArrayList<>();
-    private int flag = 0;
     private int strike = 0;
     private int ball = 0;
     private static final int GAME_OVER = 1;
     private String inputtedThreeNums;
+
+
     public PlayBall(){
         MakingRandomThreeNumsList mkRandom = new MakingRandomThreeNumsList(computer);
         mkRandom.makeRandomThreeNumsList();
