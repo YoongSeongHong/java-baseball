@@ -9,7 +9,7 @@ import java.util.List;
 public class PrintingResult {
     private int strike;
     private int ball;
-    private int flag = 0;
+    private static final int GAME_CONTINUE = 0;
     List<Integer> computer;
     public PrintingResult(int strike, int ball, List<Integer> computer){
         this.strike = strike;
@@ -17,7 +17,7 @@ public class PrintingResult {
         this.computer = computer;
     }
 
-    public void printResult(){
+    public int printResult(){
         if(strike == 3){
             PrintedSentences.printThreeStrike(strike);
 
@@ -25,23 +25,22 @@ public class PrintingResult {
             oneOrTwo = OneOrTwoInputChecking.check2(oneOrTwo);
 
             ChoosingNewGameOrExit choiceOneOrTwo = new ChoosingNewGameOrExit();
-            choiceOneOrTwo.chooseNewGameOrExit(oneOrTwo, computer);
-            flag = choiceOneOrTwo.getFlag();
-
+            return choiceOneOrTwo.chooseNewGameOrExit(oneOrTwo, computer);
 
         }else if(strike == 0 && ball == 0){
             PrintedSentences.printNothing();
+            return GAME_CONTINUE;
         }else if(strike != 0 && ball != 0){
             PrintedSentences.printStrikeAndBall(strike, ball);
+            return GAME_CONTINUE;
         }else if(strike != 0){
             PrintedSentences.printOnlyStrike(strike);
+            return GAME_CONTINUE;
         }else{
             PrintedSentences.printOnlyBall(ball);
+            return GAME_CONTINUE;
         }
     }
 
-    public int getFlag(){
-        return flag;
-    }
 
 }

@@ -11,14 +11,13 @@ public class PlayBall {
     private int flag = 0;
     private int strike = 0;
     private int ball = 0;
-    public static final int GAME_OVER = 1;
-    public static final int GAME_CONTINUE = 0;
+    private static final int GAME_OVER = 1;
     public PlayBall(){
         MakingRandomThreeNumsList mkRandom = new MakingRandomThreeNumsList(computer);
         mkRandom.makeRandomThreeNumsList();
     }
 
-    public void repeatGameUntilGameOver(List<Integer> computer){
+    public int repeatGameUntilGameOver(List<Integer> computer){
         System.out.print("숫자를 입력해 주세요 : ");
         String inputtedThreeNums = Console.readLine();
         inputtedThreeNums = ThreeNumsInputChecking.check1(inputtedThreeNums);
@@ -28,18 +27,17 @@ public class PlayBall {
         ball = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getBall();
 
         PrintingResult ptResult = new PrintingResult(strike, ball, computer);
-        ptResult.printResult();
-        flag = ptResult.getFlag();
+        return ptResult.printResult();
+
 
     }
 
     public void start() {
         System.out.println("숫자 야구 게임을 시작합니다.");
         while(true) {
-            if(flag == 1){
+            if(repeatGameUntilGameOver(this.computer) == GAME_OVER){
                 return;
             }
-            repeatGameUntilGameOver(this.computer);
 
         }
     }
