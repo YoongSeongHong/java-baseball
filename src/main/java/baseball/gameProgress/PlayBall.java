@@ -8,12 +8,9 @@ import java.util.List;
 
 public class PlayBall {
     List<Integer> computer = new ArrayList<>();
-    private int strike = 0;
-    private int ball = 0;
     private static final int GAME_OVER = 1;
-    private String inputtedThreeNums;
-    BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();
-    PrintingResult ptResult = new PrintingResult();
+    private final BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();
+    private final  PrintingResult ptResult = new PrintingResult();
 
 
     public PlayBall(){
@@ -23,11 +20,11 @@ public class PlayBall {
 
     public int repeatGameUntilGameOver(List<Integer> computer){
         System.out.print("숫자를 입력해 주세요 : ");
-        inputtedThreeNums = Console.readLine();
-        inputtedThreeNums = ThreeNumsInputChecking.check1(inputtedThreeNums);
+        String inputtedThreeNums = Console.readLine();
+        inputtedThreeNums = ThreeNumsInputChecking.checkIfInputtedThreeLengthAndIntegers(inputtedThreeNums);
 
-        strike = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getStrike();
-        ball = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getBall();
+        int strike = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getStrike();
+        int ball = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getBall();
 
         return ptResult.printResult(strike, ball, computer);
 

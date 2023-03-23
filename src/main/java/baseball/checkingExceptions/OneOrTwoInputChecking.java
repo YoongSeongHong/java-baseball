@@ -1,7 +1,7 @@
 package baseball.checkingExceptions;
 
 public class OneOrTwoInputChecking {
-    public static String check2(String s) throws IllegalArgumentException{
+    public static String checkWhetherInputtedOneOrTwo(String s) throws IllegalArgumentException{
         if(whetherInputOneOrTwo(s)){
             throw new IllegalArgumentException();
         }
