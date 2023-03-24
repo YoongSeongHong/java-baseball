@@ -8,7 +8,7 @@ public class ExceptionChecking {
         return s;
     }
 
-    private static boolean whetherInputOneOrTwo(String s) {
+    private boolean whetherInputOneOrTwo(String s) {
         return !s.equals("1") && !s.equals("2");
     }
 
@@ -19,7 +19,7 @@ public class ExceptionChecking {
         return s;
     }
 
-    private static boolean isInputNumThreeLengthAndIntegers(String s) {
+    private boolean isInputNumThreeLengthAndIntegers(String s) {
         return s.length() != 3 || ((int) s.charAt(0) - '0' >= 10 || (int) s.charAt(0) - '0' < 0) || ((int) s.charAt(1) - '0' >= 10 || (int) s.charAt(1) - '0' < 0) || ((int) s.charAt(2) - '0' >= 10 || (int) s.charAt(2) - '0' < 0);
     }
 }

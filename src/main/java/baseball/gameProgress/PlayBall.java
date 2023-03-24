@@ -10,7 +10,7 @@ public class PlayBall {
     List<Integer> computer = new ArrayList<>();
     private static final int GAME_OVER = 1;
     private final BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();
-    private final  PrintingResult ptResult = new PrintingResult();
+    private final ProcessingAccordingToStrikeAndBalls ptResult = new ProcessingAccordingToStrikeAndBalls();
 
     private final ExceptionChecking exceptionChecking = new ExceptionChecking();
     public PlayBall(){

@@ -1,19 +1,19 @@
 package baseball.storingConstant;
 
-public class PrintedSentences {
+public class PrintingSentences {
     private int strike;
     private int ball;
-    private static PrintedSentences printedSentencesOnlyInstance;
+    private static PrintingSentences printedSentencesOnlyInstance;
 
-    private PrintedSentences(int strike, int ball){
+    private PrintingSentences(int strike, int ball){
         this.strike = strike;
         this.ball = ball;
     }
 
-    public static PrintedSentences getPrintedSentencesOnlyInstance(){
+    public static PrintingSentences getPrintedSentencesOnlyInstance(){
         if (printedSentencesOnlyInstance == null){
-            synchronized (PrintedSentences.class){
-                printedSentencesOnlyInstance = new PrintedSentences(0, 0);
+            synchronized (PrintingSentences.class){
+                printedSentencesOnlyInstance = new PrintingSentences(0, 0);
             }
         }
         return printedSentencesOnlyInstance;

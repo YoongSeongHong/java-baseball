@@ -1,15 +1,15 @@
 package baseball.gameProgress;
 
 import baseball.checkingExceptions.ExceptionChecking;
-import baseball.storingConstant.PrintedSentences;
+import baseball.storingConstant.PrintingSentences;
 import camp.nextstep.edu.missionutils.Console;
 
 import java.util.List;
 
-public class PrintingResult {
+public class ProcessingAccordingToStrikeAndBalls {
     private static final int GAME_CONTINUE = 0;
     private final ChoosingNewGameOrExit choiceOneOrTwo = new ChoosingNewGameOrExit();
-    private final PrintedSentences ptSentences = PrintedSentences.getPrintedSentencesOnlyInstance();
+    private final PrintingSentences ptSentences = PrintingSentences.getPrintedSentencesOnlyInstance();
 
 
     public int printResult(int strike, int ball, List<Integer> computer, ExceptionChecking exceptionChecking){
