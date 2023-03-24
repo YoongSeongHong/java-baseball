@@ -12,16 +12,16 @@ public class PlayBall {
     private final BallStrikeJudge ballStrikeJudge = new BallStrikeJudge();
     private final  PrintingResult ptResult = new PrintingResult();
 
-
+    private final ThreeNumsInputChecking threeNumsInputChecking = new ThreeNumsInputChecking();
     public PlayBall(){
         MakingRandomThreeNumsList mkRandom = new MakingRandomThreeNumsList(computer);
         mkRandom.makeRandomThreeNumsList();
     }
 
-    public int repeatGameUntilGameOver(List<Integer> computer){
+    private int repeatGameUntilGameOver(List<Integer> computer){
         System.out.print("숫자를 입력해 주세요 : ");
         String inputtedThreeNums = Console.readLine();
-        inputtedThreeNums = ThreeNumsInputChecking.checkIfInputtedThreeLengthAndIntegers(inputtedThreeNums);
+        inputtedThreeNums = threeNumsInputChecking.check2(inputtedThreeNums);
 
         int strike = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getStrike();
         int ball = ballStrikeJudge.ballOrStrike(inputtedThreeNums, computer).getBall();
