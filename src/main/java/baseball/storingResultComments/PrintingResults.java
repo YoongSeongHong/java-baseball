@@ -1,19 +1,19 @@
-package baseball.storingConstant;
+package baseball.storingResultComments;
 
-public class PrintingSentences {
+public class PrintingResults {
     private int strike;
     private int ball;
-    private static PrintingSentences printedSentencesOnlyInstance;
+    private static PrintingResults printedSentencesOnlyInstance;
 
-    private PrintingSentences(int strike, int ball){
+    private PrintingResults(int strike, int ball){
         this.strike = strike;
         this.ball = ball;
     }
 
-    public static PrintingSentences getPrintedSentencesOnlyInstance(){
+    public static PrintingResults getPrintedSentencesOnlyInstance(){
         if (printedSentencesOnlyInstance == null){
-            synchronized (PrintingSentences.class){
-                printedSentencesOnlyInstance = new PrintingSentences(0, 0);
+            synchronized (PrintingResults.class){
+                printedSentencesOnlyInstance = new PrintingResults(0, 0);
             }
         }
         return printedSentencesOnlyInstance;
