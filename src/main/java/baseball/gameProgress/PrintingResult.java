@@ -1,6 +1,6 @@
 package baseball.gameProgress;
 
-import baseball.checkingExceptions.OneOrTwoInputChecking;
+import baseball.checkingExceptions.ExceptionChecking;
 import baseball.storingConstant.PrintedSentences;
 import camp.nextstep.edu.missionutils.Console;
 
@@ -10,15 +10,14 @@ public class PrintingResult {
     private static final int GAME_CONTINUE = 0;
     private final ChoosingNewGameOrExit choiceOneOrTwo = new ChoosingNewGameOrExit();
     private final PrintedSentences ptSentences = PrintedSentences.getPrintedSentencesOnlyInstance();
-    private final OneOrTwoInputChecking oneOrTwoInputChecking = new OneOrTwoInputChecking();
 
 
-    public int printResult(int strike, int ball, List<Integer> computer){
+    public int printResult(int strike, int ball, List<Integer> computer, ExceptionChecking exceptionChecking){
         if(strike == 3){
             ptSentences.printThreeStrike(strike);
 
             String oneOrTwo = Console.readLine();
-            oneOrTwo = oneOrTwoInputChecking.check1(oneOrTwo);
+            oneOrTwo = exceptionChecking.check1(oneOrTwo);
 
             return choiceOneOrTwo.chooseNewGameOrExit(oneOrTwo, computer);
 

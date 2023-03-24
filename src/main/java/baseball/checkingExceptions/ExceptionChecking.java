@@ -1,6 +1,17 @@
 package baseball.checkingExceptions;
 
-public class ThreeNumsInputChecking {
+public class ExceptionChecking {
+    public String check1(String s) throws IllegalArgumentException{
+        if(whetherInputOneOrTwo(s)){
+            throw new IllegalArgumentException();
+        }
+        return s;
+    }
+
+    private static boolean whetherInputOneOrTwo(String s) {
+        return !s.equals("1") && !s.equals("2");
+    }
+
     public String check2(String s) throws IllegalArgumentException{
         if(isInputNumThreeLengthAndIntegers(s)) {
             throw new IllegalArgumentException();
